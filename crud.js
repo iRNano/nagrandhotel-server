@@ -271,7 +271,7 @@ module.exports = (Collection) => {
             if(err){
                 res.status(500).send(err)
             }else{
-                res.sendStatus(200)
+                res.status(200).json({status:200, message:"Delete successfull"})
             }
         })
     }
