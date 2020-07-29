@@ -12,7 +12,7 @@ const stripe = require("stripe")("sk_test_0pXdiX31lAcpRutVhs6sCP7500CA7c9Fkq");
 
 let storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, "public/images");
+    cb(null, "./public/images");
   },
   filename: function (req, file, cb) {
     cb(null, new Date().getTime() + "-" + file.originalname);
