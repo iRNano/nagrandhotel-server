@@ -171,6 +171,7 @@ module.exports = (Collection) => {
       });
     });
   };
+
   //Create
   const create = (req, res) => {
     const newEntry = req.body;
