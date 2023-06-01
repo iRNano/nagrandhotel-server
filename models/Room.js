@@ -6,10 +6,6 @@ const RoomSchema = new Schema({
         type: String,
         require: [true, "Room name is required"]
     },
-    categoryId: { //room capacity
-        type: String,
-        required: [true, "Category Id is required"]
-    },
     price: {
         type: Number,
         required: [true, "Price is required"]
@@ -18,14 +14,16 @@ const RoomSchema = new Schema({
         type: String,
         required: [true, "Description is required"]
     },
-    quantity: {
+    maxNumber: {
         type: Number,
-        required: [true, "Quantity is required"]
+        required: true
     },
+    roomNumbers: [{ number: Number, unavailableDates: {type: [Date]}}],
     images: {
         type: Array,
         required: [true, "images are required"]
     }
-})
+},
+{ timestamps: true })
 
 module.exports = mongoose.model("Room", RoomSchema)
