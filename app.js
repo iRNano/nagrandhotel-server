@@ -44,7 +44,7 @@ db.on('connected', () => console.log("We are connected to MongoDB"))
 
 
 //middlewares
-app.use(cors());
+app.use(cors({credentials: true, origin: true}));
 app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
