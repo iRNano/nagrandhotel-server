@@ -13,7 +13,10 @@ const Rooms = require("./models/Room");
 const Categories = require("./models/Category");
 const Bookings = require("./models/Booking");
 const Tokens = require("./models/Token");
-const { response } = require("express");
+const usersRoute = require("./routes/users.js")
+const authRoute = require("./routes/auth.js")
+const roomsRoute = require("./routes/rooms.js")
+// const { response } = require("express");
 
 //connect to database
 
@@ -51,8 +54,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static("public"));
 
-app.use("/users", require("./crud")(Users));
-app.use("/rooms", require("./crud")(Rooms));
+app.use("/users", usersRoute);
+app.use("/auth", authRoute);
+app.use("/rooms", roomsRoute);
 app.use("/categories", require("./crud")(Categories));
 app.use("/book", require("./crud")(Bookings));
 app.use("/token", require("./crud")(Tokens));

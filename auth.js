@@ -1,5 +1,5 @@
 const jwt = require("jsonwebtoken")
-const User = require("./models/User")
+// const User = require("./models/User")
 const Error = require("./utils/error")
 
 exports.isAdmin = (req, res, next) => {

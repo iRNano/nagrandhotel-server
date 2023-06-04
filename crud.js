@@ -5,9 +5,9 @@ const fs = require("fs");
 // const Auth = require("./auth");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
-const nodemailer = require("nodemailer");
-const User = require("./models/User");
-const Booking = require("./models/Booking");
+// const nodemailer = require("nodemailer");
+// const User = require("./models/User");
+// const Booking = require("./models/Booking");
 const stripe = require("stripe")("sk_test_0pXdiX31lAcpRutVhs6sCP7500CA7c9Fkq");
 const Error = require("./utils/error");
 const Auth = require("./utils/verifyToken");
@@ -32,13 +32,13 @@ let storage = multer.diskStorage({
 let upload = multer({ storage: storage });
 
 //nodemailer config
-const transporter = nodemailer.createTransport({
-  service: "Gmail",
-  auth: {
-    user: process.env.EMAIL_USERNAME,
-    pass: process.env.EMAIL_PASSWORD,
-  },
-});
+// const transporter = nodemailer.createTransport({
+//   service: "Gmail",
+//   auth: {
+//     user: process.env.EMAIL_USERNAME,
+//     pass: process.env.EMAIL_PASSWORD,
+//   },
+// });
 
 console.log(process.env.EMAIL_USERNAME + " - " + process.env.EMAIL_PASSWORD);
 module.exports = (Collection) => {
@@ -132,6 +132,7 @@ module.exports = (Collection) => {
   const login = (req, res, next) => {
     const email = req.body.email;
     Collection.findOne({ email }, (err, user) => {
+      console.log(user)
       if (err || !user)
       return next(Error.createError(400,"No user found" ))
         // return res.status(400).json({
