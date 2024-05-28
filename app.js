@@ -13,7 +13,8 @@ const Tokens = require("./models/Token");
 
 //connect to database
 mongoose.connect(
-  "mongodb+srv://adrian:Nanopogi1@capstone3-67oz6.mongodb.net/cp3?retryWrites=true&w=majority",
+  "mongodb+srv://adrian:<password>@cluster0.u7q41mu.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0",
+  // "mongodb+srv://adrian:Nanopogi1@capstone3-67oz6.mongodb.net/cp3?retryWrites=true&w=majority",
   {
     // mongoose.connect("mongodb://localhost/booking-system", {
     useNewUrlParser: true,
